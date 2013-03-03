@@ -37,7 +37,7 @@ namespace Iraich.DnsOMatic
 
 		public UpdateParameters Authorization(Action<DnsOMaticAuthorizationParameters> config)
 		{
-			var authorization = new DnsOMaticAuthorizationParameters();
+			var authorization = _authorization ?? new DnsOMaticAuthorizationParameters();
 			config(authorization);
 			_authorization = authorization;
 			return this;
