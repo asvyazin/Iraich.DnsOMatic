@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iraich.DnsOMatic", "Iraich.DnsOMatic\Iraich.DnsOMatic.csproj", "{EF658A89-229C-4C54-945B-092EABA3EC27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iraich.DnsOMatic.Tests", "Iraich.DnsOMatic.Tests\Iraich.DnsOMatic.Tests.csproj", "{F1EB1ECA-946B-4296-AB9B-AF0922B1971C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF658A89-229C-4C54-945B-092EABA3EC27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF658A89-229C-4C54-945B-092EABA3EC27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF658A89-229C-4C54-945B-092EABA3EC27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF658A89-229C-4C54-945B-092EABA3EC27}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1EB1ECA-946B-4296-AB9B-AF0922B1971C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1EB1ECA-946B-4296-AB9B-AF0922B1971C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1EB1ECA-946B-4296-AB9B-AF0922B1971C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1EB1ECA-946B-4296-AB9B-AF0922B1971C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
