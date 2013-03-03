@@ -7,31 +7,31 @@ namespace Iraich.DnsOMatic
 	{
 		public UpdateParameters Hostname(string hostname)
 		{
-			_allParameters["hostname"] = hostname;
+			_queryParameters["hostname"] = hostname;
 			return this;
 		}
 
 		public UpdateParameters Myip(string myip)
 		{
-			_allParameters["myip"] = myip;
+			_queryParameters["myip"] = myip;
 			return this;
 		}
 
 		public UpdateParameters Wildcard(string wildcard)
 		{
-			_allParameters["wilcard"] = wildcard;
+			_queryParameters["wilcard"] = wildcard;
 			return this;
 		}
 
 		public UpdateParameters Mx(string mx)
 		{
-			_allParameters["mx"] = mx;
+			_queryParameters["mx"] = mx;
 			return this;
 		}
 
 		public UpdateParameters Backmx(string backmx)
 		{
-			_allParameters["backmx"] = backmx;
+			_queryParameters["backmx"] = backmx;
 			return this;
 		}
 
@@ -48,12 +48,12 @@ namespace Iraich.DnsOMatic
 			return _authorization;
 		}
 
-		private readonly Dictionary<string, string> _allParameters = new Dictionary<string, string>();
+		private readonly Dictionary<string, string> _queryParameters = new Dictionary<string, string>();
 		private DnsOMaticAuthorizationParameters _authorization;
 
-		public Dictionary<string, string> AllParameters
+		public Dictionary<string, string> QueryParameters()
 		{
-			get { return _allParameters; }
+			return _queryParameters;
 		}
 	}
 }

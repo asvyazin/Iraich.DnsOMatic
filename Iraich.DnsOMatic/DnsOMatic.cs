@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -22,7 +23,7 @@ namespace Iraich.DnsOMatic
 			var uriBuilder = new UriBuilder(UpdateMyIpUrl)
 			{
 				Path = "/nic/update",
-				Query = BuildUpdateQuery(parameters),
+				Query = BuildQuery(parameters.QueryParameters()),
 			};
 			var response = await CreateHttpClient(parameters.Authorization()).GetAsync(uriBuilder.Uri);
 			var responseContent = await response.Content.ReadAsStringAsync();
@@ -41,10 +42,10 @@ namespace Iraich.DnsOMatic
 			return result;
 		}
 
-		private static string BuildUpdateQuery(UpdateParameters parameters)
+		private static string BuildQuery(Dictionary<string, string> parameters)
 		{
 			return string.Join("&",
-				parameters.AllParameters.Select(p => string.Format("{0}={1}", p.Key, p.Value)));
+				parameters.Select(p => string.Format("{0}={1}", p.Key, p.Value)));
 		}
 	}
 }
