@@ -5,6 +5,6 @@ namespace Iraich.DnsOMatic
 	public interface IDnsOMatic
 	{
 		Task<string> GetMyIp();
-		Task UpdateMyIp(UpdateParameters parameters);
+		Task<UpdateMyIpStatus> UpdateMyIp(UpdateParameters parameters);
 	}
 }

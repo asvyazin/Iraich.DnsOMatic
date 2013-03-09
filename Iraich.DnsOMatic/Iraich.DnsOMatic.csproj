@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Parseq">
+      <HintPath>..\packages\Parseq.2.0.0.1\lib\net40\Parseq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
@@ -39,7 +42,10 @@
     <Compile Include="DnsOMaticAuthorizationParameters.cs" />
     <Compile Include="IDnsOMatic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UpdateException.cs" />
+    <Compile Include="UpdateMyIpStatus.cs" />
     <Compile Include="UpdateParameters.cs" />
+    <Compile Include="UpdateServiceStatus.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

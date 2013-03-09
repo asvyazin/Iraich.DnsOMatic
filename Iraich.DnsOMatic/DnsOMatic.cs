@@ -18,7 +18,7 @@ namespace Iraich.DnsOMatic
 			return await response.Content.ReadAsStringAsync();
 		}
 
-		public async Task UpdateMyIp(UpdateParameters parameters)
+		public async Task<UpdateMyIpStatus> UpdateMyIp(UpdateParameters parameters)
 		{
 			var uriBuilder = new UriBuilder(UpdateMyIpUrl)
 			{
@@ -28,7 +28,8 @@ namespace Iraich.DnsOMatic
 			var response = await CreateHttpClient(parameters.Authorization()).GetAsync(uriBuilder.Uri);
 			var responseContent = await response.Content.ReadAsStringAsync();
 			if (!response.IsSuccessStatusCode)
-				throw new Exception(responseContent);
+				throw new UpdateException(responseContent);
+			return UpdateMyIpStatus.FromResponse(responseContent);
 		}
 
 		private static HttpClient CreateHttpClient(DnsOMaticAuthorizationParameters parameters)

@@ -31,13 +31,16 @@ namespace Iraich.DnsOMatic.Tests
 				.Myip("127.0.0.1")).Wait();
 		}
 
-		private const string MyUsername = "xxx";
-		private const string MyPassword = "xxx";
-
 		[TestMethod]
 		public void TestGetAndUpdateMyIp()
 		{
-			GetAndUpdateIp(GetBasicUpdateParameters().Authorization(auth => auth.Credentials(new NetworkCredential(MyUsername, MyPassword)))).Wait();
+			var status = GetAndUpdateIp(GetBasicUpdateParameters().Authorization(auth => auth.Credentials(new NetworkCredential("invalid", "invalid")))).Result;
+			Assert.IsNotNull(status);
+			Assert.AreEqual(1, status.Services.Length);
+			var serviceStatus = status.Services[0];
+			Assert.IsTrue(serviceStatus.Success);
+			Assert.IsNotNull(serviceStatus.Ip);
+			Console.WriteLine("service status: {0}", serviceStatus);
 		}
 
 		private static UpdateParameters GetBasicUpdateParameters()
@@ -45,11 +48,11 @@ namespace Iraich.DnsOMatic.Tests
 			return new UpdateParameters().Authorization(auth => auth.Company("Iraich").Device("Test").Version("1.0"));
 		}
 
-		private async Task GetAndUpdateIp(UpdateParameters parameters)
+		private async Task<UpdateMyIpStatus> GetAndUpdateIp(UpdateParameters parameters)
 		{
 			var myip = await _dnsoMatic.GetMyIp();
 			Console.WriteLine("new IP: {0}", myip);
-			await _dnsoMatic.UpdateMyIp(parameters.Myip(myip));
+			return await _dnsoMatic.UpdateMyIp(parameters.Myip(myip));
 		}
 	}
 }
